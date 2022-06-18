@@ -21,3 +21,20 @@ while game_is_on:
     
     car_manager.create_cars()
     car_manager.move_cars() 
+    
+    #Detect collision with car
+    
+    
+    for car in car_manager.all_cars:
+        if car.distance(player) < 20:
+            game_is_on = False
+            
+    
+    #Detect a crossing 
+    if player.finished_lined_crossed():
+        player.go_to_start()
+        car_manager.increasing_level()
+            
+            
+screen.exitonclick()
+    
