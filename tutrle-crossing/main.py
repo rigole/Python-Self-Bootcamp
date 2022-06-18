@@ -29,6 +29,11 @@ while game_is_on:
         if car.distance(player) < 20:
             game_is_on = False
             
+    
+    #Detect a crossing 
+    if player.finished_lined_crossed():
+        player.go_to_start()
+            
             
 screen.exitonclick()
     
