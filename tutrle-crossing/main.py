@@ -33,6 +33,7 @@ while game_is_on:
     #Detect a crossing 
     if player.finished_lined_crossed():
         player.go_to_start()
+        car_manager.increasing_level()
             
             
 screen.exitonclick()
