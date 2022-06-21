@@ -29,8 +29,11 @@ while game_is_on:
     time.sleep(0.1)
     snake.move()
     
+    
+    #When food is eaten by the snake
     if snake.head.distance(food) < 15:
         food.refresh()
+        snake.extend()
         scoreboard.increase_score()
         
     
