@@ -32,7 +32,7 @@ screen.listen()
 game_is_on = True
 
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(ball.move_speed)
     screen.update()
     ball.move()
     
@@ -49,9 +49,11 @@ while game_is_on:
     #Dectect Right paddle misses
     if ball.xcor() > 380:
         ball.reset_position()
+        scoreboard.left_point()
         
     #Detect Left paddle misses:
     if ball.xcor() < -380:
         ball.reset_position()
+        scoreboard.right_point()
 
 screen.exitonclick()
