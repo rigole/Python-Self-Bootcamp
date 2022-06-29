@@ -55,3 +55,11 @@ class Snake(Turtle):
         new_segment.penup()
         new_segment.goto(position)
         self.segments.append(new_segment)
+        
+        
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
