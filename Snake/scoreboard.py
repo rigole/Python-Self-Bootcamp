@@ -7,13 +7,16 @@ class Scoreboard(Turtle):
     
     def __init__(self):
         super().__init__()
-        self.score = 0
-        self.high_score = 0
+        #self.score = 0
+        with open("C:\\Users\\Plass\\Desktop\\Python Self-Bootcamp\\Snake\\data.txt") as contents:
+            self.score = int(contents.read())
+     
         self.color("white")
         self.penup()
         self.goto(0, 265)
         self.hideturtle()
-        
+        with open("C:\\Users\\Plass\\Desktop\\Python Self-Bootcamp\\Snake\\data.txt") as contents:
+            self.high_score = int(contents.read())   
         
     def update_scoreboard(self):
         self.clear()
@@ -22,7 +25,11 @@ class Scoreboard(Turtle):
     
     def reset(self):
         if self.score > self.high_score:
-            self.high_score = self.score
+            #self.high_score = self.score
+            with  open("C:\\Users\\Plass\\Desktop\\Python Self-Bootcamp\\Snake\\data.txt", "w") as contents:
+                contents.write(str(self.score))
+                contents.close()
+            
         self.score = 0
         self.update_scoreboard()
         
