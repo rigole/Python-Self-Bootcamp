@@ -1,24 +1,30 @@
 
 import pandas
 
+#data = pandas.read_csv("weather-data.csv")
+#print(data["temp"])
+#print(type(data))
 
-    
-"""   
-class Funct:
-    def __init__(self, tags, years):
-        self.tags = tags
-        self.year = years
-        
-    def __str__(self):
-        return f"funct(tags={self.tags}, years={self.year})"
-        
+#data_dict = data.to_dict()
+#print(data_dict)
 
-tags = ["gool", "ml"]
-year = 2002
-bootcamp = Funct(tags, year)
-tags.append("boot")
-year = 2023
-print(bootcamp)
+#temp_list = data["temp"].to_list()
+#print(len(temp_list))
 
-""" 
- 
+#temp_mean = data["temp"].mean()
+
+#print(temp_mean)
+
+#print(data[data.temp == data.temp.max()])
+
+
+#monday = data[data.day == "Monday"]
+#print(monday)
+
+data_dict = {
+    "students": ["Rigole", "Michel", "Marie"],
+    "scores": [75, 56, 65]
+}
+
+data = pandas.DataFrame(data_dict)
+data.to_csv("dictionaire.csv")
