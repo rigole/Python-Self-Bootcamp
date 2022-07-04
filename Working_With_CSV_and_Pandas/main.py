@@ -1,9 +1,24 @@
-import csv
 
-with open("weather-data.csv") as data_file:
-    data = csv.reader(data_file)
-    temperatures = []
-    for row in data:
-        if row[1] != "temp":
-            temperatures.append(int(row[1]))
-    print(temperatures)
+import pandas
+
+
+    
+"""   
+class Funct:
+    def __init__(self, tags, years):
+        self.tags = tags
+        self.year = years
+        
+    def __str__(self):
+        return f"funct(tags={self.tags}, years={self.year})"
+        
+
+tags = ["gool", "ml"]
+year = 2002
+bootcamp = Funct(tags, year)
+tags.append("boot")
+year = 2023
+print(bootcamp)
+
+""" 
+ 
