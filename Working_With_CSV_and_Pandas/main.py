@@ -1,4 +1,3 @@
-
 import pandas
 
 #data = pandas.read_csv("weather-data.csv")
@@ -20,11 +19,29 @@ import pandas
 
 #monday = data[data.day == "Monday"]
 #print(monday)
-
-data_dict = {
+"""
+    data_dict = {
     "students": ["Rigole", "Michel", "Marie"],
     "scores": [75, 56, 65]
 }
 
 data = pandas.DataFrame(data_dict)
 data.to_csv("dictionaire.csv")
+    """
+
+data = pandas.read_csv("2018-Central-Park-Squirrel-Census-Squirrel-Data.csv")
+
+data_fur_color = data[data["Primary Fur Color"] == "Gray"]
+grey_squirrels_count = len(data[data["Primary Fur Color"] == "Gray"]) 
+red_squirrels_count = len(data[data["Primary Fur Color"] == "Cinnamon"]) 
+black_squirrels_count = len(data[data["Primary Fur Color"] == "Black"]) 
+
+
+data_dict ={
+    "Fur Color": ["Gray", "Cinnamon", "Black"],
+    "Count": [grey_squirrels_count, red_squirrels_count, black_squirrels_count]
+}
+
+
+
+print(data_fur_color)
