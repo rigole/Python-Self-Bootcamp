@@ -10,9 +10,20 @@ WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 
+# Setting the timing
+def count_down(count):
+    
+    canvas.itemconfig(timer_text, text=count)
+    if count > 0:
+        window.after(1000, count_down, count - 1)
+        
+    
 window = Tk()
 window.title("Pomorodo")
 window.config(padx=100, pady=50, bg=YELLOW)
+
+
+
 
 title_label = Label(text="Timer", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 50))
 title_label.grid(column=1, row=0)
@@ -20,11 +31,20 @@ title_label.grid(column=1, row=0)
 
 
 
+    
+    
+
+
+
+
 canvas = Canvas(width=400, height=424, bg=YELLOW, highlightthickness=0)
 tomato_img = PhotoImage(file="tomato.png")
 canvas.create_image(200, 202, image=tomato_img)
-canvas.create_text(203, 230, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
+timer_text = canvas.create_text(203, 230, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
 canvas.grid(column=1, row=1)
+
+
+count_down(5)
 
 start_button = Button(text="Start", highlightthickness=0)
 start_button.grid(column=0, row=2)
