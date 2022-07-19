@@ -11,6 +11,12 @@ SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 
 # Setting the timing
+def start_timer():
+    count_down(5)
+
+
+
+
 def count_down(count):
     
     canvas.itemconfig(timer_text, text=count)
@@ -44,9 +50,9 @@ timer_text = canvas.create_text(203, 230, text="00:00", fill="white", font=(FONT
 canvas.grid(column=1, row=1)
 
 
-count_down(5)
 
-start_button = Button(text="Start", highlightthickness=0)
+
+start_button = Button(text="Start", highlightthickness=0, command=start_timer)
 start_button.grid(column=0, row=2)
 
 reset_button = Button(text="Reset", highlightthickness=0)
