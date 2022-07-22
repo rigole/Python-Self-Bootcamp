@@ -1,4 +1,4 @@
-from lib2to3.pgen2.token import GREATER
+from cgitb import text
 from tkinter import *
 from turtle import title
 import math
@@ -12,6 +12,25 @@ WORK_MIN = 1
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 repetitions = 0
+timer = None
+
+
+
+# timer Reset
+
+def reset_timer():
+    window.after_cancel(timer)
+    canvas.itemconfig(timer_text, text="00:00")
+    title_label.config(text="Timer")
+    check_marks.config(text="")
+    global repetitions
+    repetitions = 0
+
+
+
+
+
+
 
 # Setting the timing
 def start_timer():
@@ -53,8 +72,15 @@ def count_down(count):
     
     canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
     if count > 0:
-        window.after(1000, count_down, count - 1)
-        
+        global timer
+        timer = window.after(1000, count_down, count - 1)
+    else:
+        start_timer()
+        marks = ""
+        work_sessions = math.floor(repetitions/2)
+        for _ in range(work_sessions):
+            marks += "✔"
+        check_marks.config(text=marks)        
     
 window = Tk()
 window.title("Pomorodo")
@@ -87,7 +113,7 @@ canvas.grid(column=1, row=1)
 start_button = Button(text="Start", highlightthickness=0, command=start_timer)
 start_button.grid(column=0, row=2)
 
-reset_button = Button(text="Reset", highlightthickness=0)
+reset_button = Button(text="Reset", highlightthickness=0, command=reset_timer)
 reset_button.grid(column=2, row=2)
 
 check_marks = Label(text="✔", fg=GREEN, bg=YELLOW)
