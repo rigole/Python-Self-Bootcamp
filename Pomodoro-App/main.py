@@ -1,4 +1,3 @@
-from cgitb import text
 from tkinter import *
 from turtle import title
 import math

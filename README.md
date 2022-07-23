@@ -1,1 +1,1 @@
-Repo created by me and for me to keep hand using python for software engineering
+Repo created by me and for me to keep hand using python for software engineering by building projects
