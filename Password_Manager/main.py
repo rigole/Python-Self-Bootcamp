@@ -1,5 +1,15 @@
 from tkinter import *
 from tkinter import messagebox
+import random
+
+#Password generator
+letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','x','y','z']
+numbers = ['0','1','2','3','4','5','6','7','8','9']
+symbols = ['!','#','$','&','%','(',')', '*','+']
+
+nr_letters = random.randint(8, 10)
+nr_symbols = random.randint(2, 4)
+nr_numbers = random.randint(2, 4)
 
 
 #Saving Password
