@@ -1,5 +1,15 @@
 from tkinter import *
 from tkinter import messagebox
+import random
+
+#Password generator
+letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','x','y','z']
+numbers = ['0','1','2','3','4','5','6','7','8','9']
+symbols = ['!','#','$','&','%','(',')', '*','+']
+
+nr_letters = random.randint(8, 10)
+nr_symbols = random.randint(2, 4)
+nr_numbers = random.randint(2, 4)
 
 
 #Saving Password
@@ -10,14 +20,19 @@ def save():
     email = email_entry.get()
     password = password_entry.get()
     
-    messagebox.askokcancel(title=website, message=f"These are the details entered: \nEmail: {email} \nPassword: {password} \n Is it okay to save")
+    if len(website) == 0 or len(password) == 0:
+        messagebox.showinfo(title="Error", message="Please make sure all fields are not empty")
+    else:
+        is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered: \nEmail: {email} \nPassword: {password} \n Is it okay to save")
+        if is_ok:
+            with open("data.txt", "a") as data_file:
+                data_file.write(f"| {website} | {email} | {password}\n")
+                website_entry.delete(0, END)
+                password_entry.delete(0, END)
+
+
+        
     
-    with open("data.txt", "a") as data_file:
-        data_file.write(f"| {website} | {email} | {password}\n")
-        website_entry.delete(0, END)
-        password_entry.delete(0, END)
-
-
 
 
 
