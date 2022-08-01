@@ -39,6 +39,7 @@ def password_generator():
 
 
     #Saving Password
+    pyperclip.copy(password)
 
 def save():
     
