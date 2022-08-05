@@ -59,23 +59,33 @@ def save():
     else:
         #is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered: \nEmail: {email} \nPassword: {password} \n Is it okay to save")
         #if is_ok:
-        with open("data.json", "r") as data_file:
-            #json.dump(new_password, data_file, indent=4)
+        try:
+            with open("data.json", "r") as data_file:
+            #json.dump(new_p assword, data_file, indent=4)
             #data_file.write(f"| {website} | {email} | {password}\n")
             
             #reading old data
-            data = json.load(data_file)
+                data = json.load(data_file)
+            
+        except FileNotFoundError:
+            with open("data.json", "w") as data_file:
+                json.dump(new_password, data_file, indent=4)
+            
+            
+        else:
             
             #Update old data with new data
             data.update(new_password)
+             
+            with open("data.json", "w") as data_file:
+                #Saving updated data
+                json.dump(data, data_file, indent=4)
+                #print(data)
+                
+        finally:
             
-            
-        with open("data.json", "w") as data_file:
-            #Saving updated data
-            json.dump(data, data_file, indent=4)
-            #print(data)
-            website_entry.delete(0, END)
-            password_entry.delete(0, END)
+                website_entry.delete(0, END)
+                password_entry.delete(0, END)
 
 
         
