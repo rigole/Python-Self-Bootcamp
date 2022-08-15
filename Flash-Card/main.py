@@ -3,18 +3,21 @@ from tkinter import *
 import pandas
 import random
 
+
+BACKGROUND_COLOR = "#B1DDC6"
+current_card = {}
+to_learn = {}
+
 data = pandas.read_csv("french-words.csv")
 #print(data)
 to_learn = data.to_dict(orient="records")
-current_card = {}
+
 #print(to_learn)
 
 
      
      
 
-     
-BACKGROUND_COLOR = "#B1DDC6"
 
 
 
@@ -30,7 +33,7 @@ def next_card():
     
     
     
-def flip_card():
+def flip_card(): 
     canvas.itemconfig(card_title, text="English", fill="white")
     canvas.itemconfig(card_word, text=current_card["English"], fill="white")
     canvas.itemconfig(card_background, image=card_back_img)
@@ -38,10 +41,13 @@ def flip_card():
 
 def is_known():
      to_learn.remove(current_card)
-     print(len(to_learn))
+     #print(len(to_learn))
      data = pandas.DataFrame(to_learn)
-     data.to_csv("data/words_to_learn.csv")
+     data.to_csv("words_to_learn.csv", index=False)
      next_card()
+
+
+
 
 window = Tk()
 window.title("Flashy")
@@ -73,6 +79,9 @@ unknown_button.grid(row=1, column=0)
 
 
 right_image = PhotoImage(file="images/right.png")
-right_button = Button(image=right_image, highlightthickness=0, command=next_card)
+right_button = Button(image=right_image, highlightthickness=0, command=is_known)
 right_button.grid(row=1, column=1)
+
+next_card()
+
 window.mainloop()
