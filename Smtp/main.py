@@ -52,3 +52,4 @@ if week == 2:
             to_addrs=MY_EMAIL, 
             msg=f"SUBJECT:Monday Motivation\n\n{quote}"
             )
+        
