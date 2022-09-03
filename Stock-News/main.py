@@ -10,7 +10,10 @@ MY_API_KEY = "ZL8TMSJFVDC9ZIL4"
 
 stock_params ={
     "function": "TIME_SERIES_DAILY",
-    "symbol": STOCK_NAME
+    "symbol": STOCK_NAME,
+    "apikey": MY_API_KEY,
 }
 
 response = requests.get(STOCK_ENDPOINT, params=stock_params)
+data = response.json()["Time Series (Daily)"]
+print(data)
