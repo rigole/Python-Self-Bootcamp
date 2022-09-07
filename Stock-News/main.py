@@ -35,4 +35,8 @@ if difference > 1:
     
     news_response = requests.get(NEWS_ENDPOINT, params=news_params)
     articles = news_response.json()["articles"]
-    print(articles)
+    
+    three_articles = articles[:3]
+    
+    
+    #formatted_articles = [f"Headline: {article['title']}. \nBrief: {article["description"]}" for article in three_articles]
