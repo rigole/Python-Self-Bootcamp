@@ -9,6 +9,7 @@ print('\n'.join
          for y in range(15,-15,-1)]))
 """
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 #from selenium.webdriver.chrome.service import Service
 #from webdriver_manager.chrome import ChromeDriverManager
 chrome_driver_path = "C:/chrome/chromedriver.exe"
@@ -19,10 +20,14 @@ option = webdriver.ChromeOptions()
 option.binary_location = brave_path
 driver = webdriver.Chrome(executable_path=chrome_driver_path, chrome_options=option)
 
-driver.get("https://www.amazon.com")
+driver.get("https://www.python.org/")
 
-price = driver.find_element_by_class_name("a-size-base a-color-price")
-print(price)
+#price = driver.find_element_by_id("certified-refurbished-version")
+#price = driver.find_element(By.ID, "certified-refurbished-version")
+name = driver.find_element(By.NAME, "q")
+
+print(name.tag_name)
+print(name.get_attribute("placeholder"))
 #driver.close()
 driver.quit()
 
