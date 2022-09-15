@@ -20,13 +20,14 @@ option = webdriver.ChromeOptions()
 option.binary_location = brave_path
 driver = webdriver.Chrome(executable_path=chrome_driver_path, chrome_options=option)
 
-driver.get("https://www.amazon.com/Xbox-Core-Controller-Carbon-Black-one/dp/B08DF248LD/ref=lp_16225016011_1_5")
+driver.get("https://www.python.org/")
 
 #price = driver.find_element_by_id("certified-refurbished-version")
-price = driver.find_element(By.ID, "certified-refurbished-version")
+#price = driver.find_element(By.ID, "certified-refurbished-version")
+name = driver.find_element(By.NAME, "q")
 
-
-print(price.text)
+print(name.tag_name)
+print(name.get_attribute("placeholder"))
 #driver.close()
 driver.quit()
 
