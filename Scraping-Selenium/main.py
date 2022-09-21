@@ -24,10 +24,20 @@ driver.get("https://www.python.org/")
 
 #price = driver.find_element_by_id("certified-refurbished-version")
 #price = driver.find_element(By.ID, "certified-refurbished-version")
-name = driver.find_element(By.NAME, "q")
+#name = driver.find_element(By.TAG_NAME, "h2")
+#class_name = driver.find_element(By.CLASS_NAME, "search-field")
 
-print(name.tag_name)
-print(name.get_attribute("placeholder"))
+#print(name.tag_name)
+#print(name.get_attribute("placeholder"))
+#print(class_name)
+
+document_link = driver.find_element(By.CSS_SELECTOR, "div.small-widget")
+
+print(document_link)
+
+
+
+
 #driver.close()
 driver.quit()
 
