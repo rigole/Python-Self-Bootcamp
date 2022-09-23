@@ -11,9 +11,9 @@ def hello_world():
 def bye():
     return "Bye" 
 
-@app.route("/<name>")
-def greet(name):
-    return f"Hello {name}. You will make it. Keep trying"
+@app.route("/username/<name>/<int:number>")
+def greet(name, number):
+    return f"Hello {name}. You will make it. Keep trying, your wealth will be {number} billions dollars"
 
 
 
