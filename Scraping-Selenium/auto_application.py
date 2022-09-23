@@ -36,6 +36,7 @@ password_field.send_keys(Keys.ENTER)
 
 time.sleep(5)
 
+
 all_listings = driver.find_element_by_css_selector("selector value")
 
 for listing in all_listings:
