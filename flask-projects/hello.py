@@ -11,8 +11,11 @@ def hello_world():
 def bye():
     return "Bye" 
 
+@app.route("/<name>")
+def greet(name):
+    return f"Hello {name}. You will make it. Keep trying"
 
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
