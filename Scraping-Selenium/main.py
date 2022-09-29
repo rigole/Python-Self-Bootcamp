@@ -10,6 +10,7 @@ print('\n'.join
 """
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import time
 #from selenium.webdriver.chrome.service import Service
 #from webdriver_manager.chrome import ChromeDriverManager
 chrome_driver_path = "C:/chrome/chromedriver.exe"
@@ -17,11 +18,16 @@ brave_path = "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe
 
 
 option = webdriver.ChromeOptions()
+#option.add_experimental_option("excludeSwitches", ['enable-logging'])
 option.binary_location = brave_path
 driver = webdriver.Chrome(executable_path=chrome_driver_path, chrome_options=option)
 
-driver.get("https://www.python.org/")
 
+#time.sleep(10)
+
+driver.get("https://www.pagesjaunes.fr/annuaire/paris-75/developpement-informatique")
+
+time.sleep(55)
 #price = driver.find_element_by_id("certified-refurbished-version")
 #price = driver.find_element(By.ID, "certified-refurbished-version")
 #name = driver.find_element(By.TAG_NAME, "h2")
@@ -31,9 +37,14 @@ driver.get("https://www.python.org/")
 #print(name.get_attribute("placeholder"))
 #print(class_name)
 
-document_link = driver.find_element(By.CSS_SELECTOR, "div.small-widget")
+#frame = driver.find_element(By.NAME, "__tcfapiLocator" )
+#driver.switch_to.frame(frame)
 
-print(document_link)
+name_businness = driver.find_element(By.TAG_NAME, "h1")
+
+#document_link = driver.find_element(By.CSS_SELECTOR, "div.small-widget")
+time.sleep(2)
+print(name_businness)
 
 
 
